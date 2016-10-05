@@ -1,2 +1,2 @@
-#Android app for Open Archives Iniatitive
+#Android app for Open Archives Initiative
 
