@@ -41,7 +41,7 @@ module.exports = function(e) {
 	$.children[0].addEventListener("click",function(e){
 		e.url=url;
 		e.label=label;
-		require("listrecords")(e);
+		require("listrecordsWindow")(e);
 	});
 	$.open();
 };

@@ -1,1 +1,1 @@
-/Users/fuerst/Documents/APPC_WORKSPACE/OpenArchivesInitiative/Resources/app.js
+String.prototype.unescapeEntities=function(){return this.replace(/&#([0-9]{1,4});/gi,function(t,e){var i=parseInt(e,10);return String.fromCharCode(i)})};var Moment=require("lib/moment"),OAI=require("de.appwerft.oaipmh");require("providersWindow")();

@@ -33,30 +33,14 @@ module.exports = function(e) {
 			}
 			return bar;
 		}
-
 		var options = {
 			set : setSpec,
 			from : (fromButton.getTitle() != "From") ? Moment(fromButton.getTitle()).toISOString() : undefined,
 			until : (untilButton.getTitle() != "Until") ? Moment(untilButton.getTitle()).toISOString() : undefined,
 		};
 		requestId = Provider.ListRecords(options, onLoad, onError);
-		var options = {
-			set : setSpec,
-			from : (fromButton.getTitle() != "From") ? Moment(fromButton.getTitle()).format("YYYY-MM-DD") : undefined,
-			until : (untilButton.getTitle() != "Until") ? Moment(untilButton.getTitle()).format("YYYY-MM-DD") : undefined,
-		};
-		Provider.ListRecords(options, onLoad, onError);
 		listView.setSections([]);
 	}
-
-	var granularity;
-	function onIdentifyLoad(e) {
-		granularity = e["OAI-PMH"].Identify.granularity;
-	}
-
-	function onIdentifyError() {
-	}
-
 	var OAI = require("de.appwerft.oaipmh");
 	var ab = require("com.alcoapps.actionbarextras");
 	var from,
@@ -67,8 +51,6 @@ module.exports = function(e) {
 		url : url,
 		timeout : 60000
 	});
-	Provider.Identify(null, onIdentifyLoad, onIdentifyError);
-
 	var counter = 0;
 	var id = id;
 	var setSpec = e.setSpec;

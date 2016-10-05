@@ -3,13 +3,9 @@ var H = 60;
 module.exports = function(event) {
 	Ti.Media.vibrate([40,0]);
 	var itemId = JSON.parse(event.itemId);
-	console.log(itemId);
-	console.log(typeof itemId);
 	var id = itemId.id;
 	var url = itemId.url;
 	var title = itemId.label;
-	console.log("⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩ "+itemId.label);
-	
 	var $ = Ti.UI.createOptionDialog({
 		options : ["Identify", "ListMetadataFormats", "ListIdentifiers", "ListSets", "ListRecords"],
 		selectedIndex : 4,
