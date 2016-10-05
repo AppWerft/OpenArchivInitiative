@@ -39,7 +39,7 @@ module.exports = function(e) {
 			from : (fromButton.getTitle() != "From") ? Moment(fromButton.getTitle()).toISOString() : undefined,
 			until : (untilButton.getTitle() != "Until") ? Moment(untilButton.getTitle()).toISOString() : undefined,
 		};
-		requestId =Provider.ListRecords(options, onLoad, onError);
+		requestId = Provider.ListRecords(options, onLoad, onError);
 		var options = {
 			set : setSpec,
 			from : (fromButton.getTitle() != "From") ? Moment(fromButton.getTitle()).format("YYYY-MM-DD") : undefined,
@@ -171,6 +171,14 @@ module.exports = function(e) {
 		counter++;
 		$.Refresher.setRefreshing(false);
 		var recordList = e["OAI-PMH"].ListRecords;
+		if (recordList) {
+			var resumption = recordList.resumptionToken;
+		//  {"cursor":50,"content":"ISFvYWlfZGMhMTAw","completeListSize":12762}
+			if (resumption) {
+				ab.setSubtitle("List of Records (" + resumption.cursor + "/" + resumption.completeListSize + ")");
+			}
+		}
+
 		if (!recordList) {
 			Ti.UI.createNotification({
 				message : e["OAI-PMH"].error.content

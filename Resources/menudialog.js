@@ -20,20 +20,20 @@ module.exports = function(event) {
 		if (dialogevent.index >= 0) {
 			switch (dialogevent.index) {
 			case 0:
-				require("identify")(itemId);
+				require("identifyWindow")(itemId);
 				break;
 			case 1:
-				require("listmetadata")(itemId);
+				require("listmetadataWindow")(itemId);
 				break;
 			case 2:
-				require("listidentifiers")(itemId);
+				require("listidentifiersWindow")(itemId);
 				break;
 			case 3:
-				require("listsets")(itemId);
+				require("listsetsWindow")(itemId);
 				break;
 
 			case 4:
-				require("listrecords")(itemId);
+				require("listrecordsWindow")(itemId);
 				break;
 			}
 
