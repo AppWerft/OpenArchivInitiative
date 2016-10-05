@@ -1,5 +1,5 @@
 module.exports = {
-	"http://dukespace.lib.duke.edu/dspace-oai/request" : "DukeSpace",
+	"http://dukespace.lib.duke.edu/dspace-oai/request" : "DukeSpace",    
 	"http://www.lib.kobe-u.ac.jp/infolib/oai_repository/pmh/G0000003-repository" : "神戸大学リポジトリ",
 	"http://ethesis.nitrkl.ac.in/cgi/oai2" : "ethesis",
 	"http://emaj.pitt.edu/ojs/index.php/emaj/oai" : "EMAJ: Emerging Markets Journal",
