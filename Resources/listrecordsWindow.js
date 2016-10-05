@@ -65,7 +65,7 @@ module.exports = function(e) {
 	var id = e.id;
 	var Provider = OAI.createProvider({
 		url : url,
-		timeout : 30000
+		timeout : 60000
 	});
 	Provider.Identify(null, onIdentifyLoad, onIdentifyError);
 
