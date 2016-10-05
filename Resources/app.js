@@ -8,4 +8,4 @@ String.prototype.unescapeEntities = function() {
 var Moment = require("lib/moment");
 var OAI = require("de.appwerft.oaipmh");
 
-require("providers")();
+require("providersWindow")();
