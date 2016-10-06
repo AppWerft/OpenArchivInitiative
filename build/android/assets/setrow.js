@@ -1,1 +1,1 @@
-module.exports=function(e){var i=Ti.UI.createLabel({text:e.setName.unescapeEntities(),left:10,height:50,top:5,touchEnabled:!1,textAlign:"left",width:Ti.UI.FILL,color:"#c8c8c8",font:{fontSize:20,fontWeight:"bold"}}),a=Ti.UI.createLabel({text:e.setSpec,left:10,height:22,touchEnabled:!1,textAlign:"left",width:Ti.UI.FILL,color:"white",bottom:10,font:{fontSize:16}}),t=Ti.UI.createTableViewRow({height:90,hasChild:!0,setSpec:e.setSpec,backgroundColor:"#000033"});return t.add(i),t.add(a),t};
+/Users/fuerst/Documents/APPC_WORKSPACE/OpenArchivesInitiative/Resources/setrow.js

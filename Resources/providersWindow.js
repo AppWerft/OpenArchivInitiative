@@ -7,7 +7,6 @@ module.exports = function() {
 	});
 	var listView = Ti.UI.createListView({
 		searchView : searchView,
-		top : 10,
 		templates : {
 			'main' : require('TEMPLATES').main,
 		},

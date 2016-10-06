@@ -1,1 +1,1 @@
-module.exports=function(e,t){var n=Ti.UI.createLabel({text:e,left:10,top:5,textAlign:"left",color:"white",font:{fontWeight:"bold",fontSize:24}}),a=Ti.UI.createLabel({text:t,left:10,bottom:5,textAlign:"left",color:"white",font:{fontSize:14}}),r=Ti.UI.createTableViewRow({height:80,backgroundColor:"#000033"});return r.add(n),r.add(a),r};
+/Users/fuerst/Documents/APPC_WORKSPACE/OpenArchivesInitiative/Resources/metarow.js

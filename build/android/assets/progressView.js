@@ -1,1 +1,1 @@
-module.exports=function(){return require("de.appwerft.waterwaveprogress").createView({maxProgress:100,ringWidth:4,waterColor:"#00ff00",waterBgColor:"#00aa00",ring2WaterWidth:10.1,fontSize:22,showRing:!0,showNumerical:!0,crestCount:2.2,amplitude:.4,"α":.7})};
+/Users/fuerst/Documents/APPC_WORKSPACE/OpenArchivesInitiative/Resources/progressView.js

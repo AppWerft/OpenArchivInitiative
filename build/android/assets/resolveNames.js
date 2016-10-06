@@ -1,1 +1,1 @@
-module.exports=function(e,i){function a(){i.setWidth(o/n.length*100+"%")}function t(e){e&&e.id&&(Ti.App.Properties.hasProperty(e.id)&&(e.children[0].text=Ti.App.Properties.getString(e.id),o++,a(),t(n[o]),console.log('{"'+e.url+'":"'+Ti.App.Properties.getString(e.id)+'"},')),o++,a(),t(n[o]))}var o=0,n=e.data[0].rows;t(n[o])};
+/Users/fuerst/Documents/APPC_WORKSPACE/OpenArchivesInitiative/Resources/resolveNames.js

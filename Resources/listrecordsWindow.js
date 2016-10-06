@@ -1,19 +1,4 @@
-function getText(foo) {
-	if ( typeof foo == "string") {
-		return foo;
-	} else if ( typeof foo == "object") {
-		console.log("object");
-		if (foo.list) {
-			console.log("array");
-			if ( typeof foo.list[0] == "string")
-				return foo.list[0];
-			else
-				return foo.list[0].content;
-		} else
-			return foo.content;
-	} else
-		return "%%";
-}
+
 
 var HEIGHT = 50;
 module.exports = function(e) {
@@ -33,6 +18,7 @@ module.exports = function(e) {
 			}
 			return bar;
 		}
+
 		var options = {
 			set : setSpec,
 			from : (fromButton.getTitle() != "From") ? Moment(fromButton.getTitle()).toISOString() : undefined,
@@ -41,6 +27,7 @@ module.exports = function(e) {
 		requestId = Provider.ListRecords(options, onLoad, onError);
 		listView.setSections([]);
 	}
+
 	var OAI = require("de.appwerft.oaipmh");
 	var ab = require("com.alcoapps.actionbarextras");
 	var from,
@@ -155,7 +142,7 @@ module.exports = function(e) {
 		var recordList = e["OAI-PMH"].ListRecords;
 		if (recordList) {
 			var resumption = recordList.resumptionToken;
-		//  {"cursor":50,"content":"ISFvYWlfZGMhMTAw","completeListSize":12762}
+			//  {"cursor":50,"content":"ISFvYWlfZGMhMTAw","completeListSize":12762}
 			if (resumption) {
 				ab.setSubtitle("List of Records (" + resumption.cursor + "/" + resumption.completeListSize + ")");
 			}
@@ -163,7 +150,8 @@ module.exports = function(e) {
 
 		if (!recordList) {
 			Ti.UI.createNotification({
-				message : e["OAI-PMH"].error.content
+				message : e["OAI-PMH"].error.content,
+				duration : 5000
 			}).show();
 			return;
 		}
