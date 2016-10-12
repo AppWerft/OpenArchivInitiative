@@ -1,10 +1,9 @@
-
-
 var HEIGHT = 50;
 module.exports = function(e) {
 	var requestId;
 	function refreshList() {
 		counter = 0;
+		$.progressView.children[0].visible = false;
 		$.Refresher.setRefreshing(true);
 		function getTimestamp(foo) {
 			var bar;
@@ -44,6 +43,7 @@ module.exports = function(e) {
 	var $ = Ti.UI.createWindow({
 		title : e.label
 	});
+	$.progressView = require("progressView")();
 	$.addEventListener("open", function() {
 		$.activity.onCreateOptionsMenu = function(m) {
 			m.menu.clear();
@@ -69,7 +69,8 @@ module.exports = function(e) {
 		$.activity.actionBar.onHomeIconItemSelected = function(_e) {
 			$.close();
 		};
-		$.progressView = require("progressView")();
+
+		
 	});
 	$.open();
 	var toolView = Ti.UI.createView({
@@ -131,21 +132,27 @@ module.exports = function(e) {
 	});
 	$.add($.Refresher);
 	$.Refresher.setRefreshing(true);
-	$.addEventListener("blur", function() {
+	$.addEventListener("close", function() {
 		console.log("⬇︎⬇︎⬇︎");
+		$.progressView.children[0].hide();
 		Provider.abort(requestId);
 		onLoad = null;
 	});
 	var onLoad = function(e) {
 		counter++;
 		$.Refresher.setRefreshing(false);
+
 		var recordList = e["OAI-PMH"].ListRecords;
 		if (recordList) {
 			var resumption = recordList.resumptionToken;
 			//  {"cursor":50,"content":"ISFvYWlfZGMhMTAw","completeListSize":12762}
 			if (resumption) {
+				$.progressView.children[0].visible = true;
 				ab.setSubtitle("List of Records (" + resumption.cursor + "/" + resumption.completeListSize + ")");
-			}
+				var progress = 100.0*parseInt(resumption.cursor) / parseInt(resumption.completeListSize);
+				resumption.cursor && resumption.completeListSize && $.progressView.children[0].setProgress(progress);
+			} else
+				$.progressView.children[0].hide();
 		}
 
 		if (!recordList) {
@@ -177,6 +184,6 @@ module.exports = function(e) {
 		require("record")(e);
 	});
 	listView.addEventListener("itemclick", require("record"));
-
+	$.add($.progressView);
 	//$.add($.progessView);
 };

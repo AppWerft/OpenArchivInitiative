@@ -1,15 +1,28 @@
 module.exports = function() {
-	return require('de.appwerft.waterwaveprogress').createView({
-		maxProgress : 100,
-		ringWidth : 4,
-		waterColor : '#00ff00',
-		waterBgColor : '#00aa00',
-		ring2WaterWidth : 10.1,
-		fontSize : 22,
-		showRing : true,
-		showNumerical : true,
-		crestCount : 2.2,
-		amplitude : 0.4,
-		α : 0.7
+	var $ = Ti.UI.createView({
+		opacity : 0.7,
+		width : 240,
+		touchEnabled : false,
+		height : 240,
+		zIndex : 9999
 	});
+	$.progressView = require("de.appwerft.waterwaveprogress").createView({
+		showWater : true,
+		touchEnabled : false,
+		waterColor : "#aaa",
+		waterBgColor : "#000033",
+		showRing : true,
+		ringWidth : 30,
+		ring2WaterWidth : 10,
+		ringColor : "#ddd",
+		maxProgress : 100.0,
+		ringBgColor : "#666",
+		showNumerical : true,
+		fontSize : 122,
+		textColor : "#000033",
+	});
+	$.progressView.setProgress(0.0);
+	$.add($.progressView);
+	$.setProgress = $.progressView.setProgress;
+	return $;
 };

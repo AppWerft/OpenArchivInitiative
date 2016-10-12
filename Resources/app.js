@@ -8,14 +8,23 @@ String.prototype.unescapeEntities = function() {
 var Moment = require("lib/moment");
 var OAI = require("de.appwerft.oaipmh");
 
+var OP = require("de.appwerft.overpass");
+
+
+
+OP.get(['area[name="St. Pauli"]','way(area)[highway][name][oneway="yes"]','(._>',')'], function(e) {
+	console.log(e);
+});
+
+
 require("providersWindow")();
 
 function getText(foo) {
-	if ( typeof foo == "string") {
+	if (typeof foo == "string") {
 		return foo;
-	} else if ( typeof foo == "object") {
+	} else if (typeof foo == "object") {
 		if (foo.list) {
-			if ( typeof foo.list[0] == "string")
+			if (typeof foo.list[0] == "string")
 				return foo.list[0];
 			else
 				return foo.list[0].content;
